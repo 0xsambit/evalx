@@ -19,7 +19,7 @@ const Loader = () => {
 					className='w-24 animate__animated animate__fadeInRight'
 				/>
 			</div>
-			<h1 className='font-poppins font-semibold text-5xl animate__animated animate__flipInX mt-5'>
+			<h1 className=' font-poppins font-medium text-4xl animate__animated animate__flipInX mt-3'>
 				Codemate
 			</h1>
 		</section>
