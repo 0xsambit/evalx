@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-
+import { images } from "../constants";
+import { Link } from "react-router-dom";
 const Login = () => {
 	const [role, setRole] = useState("");
 
@@ -12,7 +13,7 @@ const Login = () => {
 	};
 
 	return (
-		<section className='w-full h-screen bg-primary'>
+		<section className='w-full h-screen bg-primary font-poppins'>
 			<div className='text-white flex justify-center items-center h-screen flex-col'>
 				{!role ? (
 					<>
@@ -33,57 +34,74 @@ const Login = () => {
 						</div>
 					</>
 				) : role === "recruiter" ? (
-					<div className='flex flex-col items-center'>
-						<h2 className='font-bold text-3xl text-[#bebebe] my-10'>
-							Recruiter/Interviewer Login
-						</h2>
-						<form className='flex flex-col gap-4 w-full justify-center items-center'>
-							<input
-								type='text'
-								placeholder='Username'
-								className='px-4 py-2 w-full rounded-lg text-black'
+					<section className='flex justify-around items-center w-full'>
+						<div>
+							<img
+								src='https://static.vecteezy.com/system/resources/previews/025/340/141/original/user-support-abstract-concept-illustration-set-job-interview-choosing-a-candidate-prepare-for-interview-recruiter-flat-modern-illustration-vector.jpg'
+								alt=''
+								className='w-[450px] h-[450px] object-cover rounded-full'
 							/>
-							<input
-								type='password'
-								placeholder='Password'
-								className='px-4 py-2 rounded-lg text-black w-full'
-							/>
-							<button className='px-4 py-2 bg-gray-300 rounded-lg text-black font-semibold  '>
-								Login
+						</div>
+						<div className='flex flex-col items-center'>
+							<h2 className='font-bold text-3xl text-[#bebebe] my-2'>
+								Recruiter/Interviewer Login
+							</h2>
+							<p className='text-center text-gray-400 font-poppins'>
+								Welcome Back
+							</p>
+							<form className='flex flex-col gap-4 w-full justify-center items-center my-10'>
+								<input
+									type='email'
+									placeholder='Enter your email'
+									className='px-4 py-2 w-full rounded-3xl text-black'
+								/>
+								<input
+									type='password'
+									placeholder='Password'
+									className='px-4 py-2 rounded-3xl text-black w-full'
+								/>
+								<button className='px-4 py-2 bg-gray-300 hover:bg-gray-500 duration-300 hover:text-white rounded-3xl text-black font-medium w-full'>
+									Login
+								</button>
+							</form>
+							<p className='text-sm text-gray-300'>
+								Don't have a account? Sign Up
+							</p>
+							<button
+								className='mt-4 px-4 py-2 bg-red-300 duration-300 hover:bg-red-400 rounded-3xl text-black font-medium'
+								onClick={handleBackClick}>
+								Back to Role Selection
 							</button>
-						</form>
-						<button
-							className='mt-4 px-4 py-2 bg-red-300 rounded-lg text-black font-semibold'
-							onClick={handleBackClick}>
-							Back to Role Selection
-						</button>
-					</div>
+						</div>
+					</section>
 				) : (
-					<div className='flex flex-col items-center'>
-						<h2 className='font-bold text-3xl text-[#bebebe] my-10'>
-							Student/Interviewee Login
-						</h2>
-						<form className='flex flex-col gap-4 w-full justify-center items-center'>
-							<input
-								type='text'
-								placeholder='Username'
-								className='px-4 py-2 rounded-lg text-black w-full'
-							/>
-							<input
-								type='password'
-								placeholder='Password'
-								className='px-4 py-2 rounded-lg text-black w-full'
-							/>
-							<button className='px-4 py-2 bg-gray-300 rounded-lg text-black font-semibold'>
-								Login
+					<section>
+						<div className='flex flex-col items-center'>
+							<h2 className='font-bold text-3xl text-[#bebebe] my-10'>
+								Student/Interviewee Login
+							</h2>
+							<form className='flex flex-col gap-4 w-full justify-center items-center'>
+								<input
+									type='text'
+									placeholder='Username'
+									className='px-4 py-2 rounded-lg text-black w-full'
+								/>
+								<input
+									type='password'
+									placeholder='Password'
+									className='px-4 py-2 rounded-lg text-black w-full'
+								/>
+								<button className='px-4 py-2 bg-gray-300 rounded-lg text-black font-medium'>
+									Login
+								</button>
+							</form>
+							<button
+								className='mt-4 px-4 py-2 bg-red-300 rounded-lg text-black font-medium'
+								onClick={handleBackClick}>
+								Back to Role Selection
 							</button>
-						</form>
-						<button
-							className='mt-4 px-4 py-2 bg-red-300 rounded-lg text-black font-semibold'
-							onClick={handleBackClick}>
-							Back to Role Selection
-						</button>
-					</div>
+						</div>
+					</section>
 				)}
 			</div>
 		</section>
