@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Loader from "./components/Loader";
 import Home from "./pages/Home";
+import Login from "./pages/Login";
 import "animate.css";
 const App = () => {
 	const [loading, setLoading] = useState(true);
@@ -16,7 +17,8 @@ const App = () => {
 	}
 	return (
 		<>
-			<Home />
+			<Login />
+			{/* <Home /> */}
 		</>
 	);
 };
