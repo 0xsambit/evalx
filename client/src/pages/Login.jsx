@@ -53,14 +53,14 @@ const Login = () => {
 								<input
 									type='email'
 									placeholder='Enter your email'
-									className='px-4 py-2 w-full rounded-3xl text-black'
+									className='px-4 py-2 w-full rounded-3xl text-black text-[14px] outline-none'
 								/>
 								<input
 									type='password'
 									placeholder='Password'
-									className='px-4 py-2 rounded-3xl text-black w-full'
+									className='px-4 py-2 rounded-3xl text-black w-full text-[14px] outline-none'
 								/>
-								<button className='px-4 py-2 bg-gray-300 hover:bg-gray-500 duration-300 hover:text-white rounded-3xl text-black font-medium w-full'>
+								<button className='px-4 py-2 bg-gray-300 hover:bg-gray-600 duration-300 hover:text-white rounded-3xl text-black font-medium w-full'>
 									Login
 								</button>
 							</form>
@@ -75,28 +75,41 @@ const Login = () => {
 						</div>
 					</section>
 				) : (
-					<section>
+					<section className='flex justify-around items-center w-full'>
+						<div>
+							<img
+								src='https://static.vecteezy.com/system/resources/previews/025/340/141/original/user-support-abstract-concept-illustration-set-job-interview-choosing-a-candidate-prepare-for-interview-recruiter-flat-modern-illustration-vector.jpg'
+								alt=''
+								className='w-[450px] h-[450px] object-cover rounded-full'
+							/>
+						</div>
 						<div className='flex flex-col items-center'>
-							<h2 className='font-bold text-3xl text-[#bebebe] my-10'>
-								Student/Interviewee Login
+							<h2 className='font-bold text-3xl text-[#bebebe] my-2'>
+								Student/ Interviewee Login
 							</h2>
-							<form className='flex flex-col gap-4 w-full justify-center items-center'>
+							<p className='text-center text-gray-400 font-poppins'>
+								Welcome Back
+							</p>
+							<form className='flex flex-col gap-4 w-full justify-center items-center my-10'>
 								<input
-									type='text'
-									placeholder='Username'
-									className='px-4 py-2 rounded-lg text-black w-full'
+									type='email'
+									placeholder='Enter your email'
+									className='px-4 py-2 w-full rounded-3xl text-black text-[14px] outline-none'
 								/>
 								<input
 									type='password'
 									placeholder='Password'
-									className='px-4 py-2 rounded-lg text-black w-full'
+									className='px-4 py-2 rounded-3xl text-black w-full text-[14px] outline-none'
 								/>
-								<button className='px-4 py-2 bg-gray-300 rounded-lg text-black font-medium'>
+								<button className='px-4 py-2 bg-gray-300 hover:bg-gray-600 duration-300 hover:text-white rounded-3xl text-black font-medium w-full'>
 									Login
 								</button>
 							</form>
+							<p className='text-sm text-gray-300'>
+								Don't have a account? Sign Up
+							</p>
 							<button
-								className='mt-4 px-4 py-2 bg-red-300 rounded-lg text-black font-medium'
+								className='mt-4 px-4 py-2 bg-red-300 duration-300 hover:bg-red-400 rounded-3xl text-black font-medium'
 								onClick={handleBackClick}>
 								Back to Role Selection
 							</button>
