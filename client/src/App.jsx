@@ -6,6 +6,8 @@ import "animate.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./auth/AuthContext";
 import ProtectedRoute from "./auth/ProtectedRoute";
+import InterviewerSignUp from "./pages/InterviewerSignUp";
+import StudentSignUp from "./pages/StudentSignUp";
 
 const App = () => {
 	const [loading, setLoading] = useState(true);
@@ -24,8 +26,11 @@ const App = () => {
 		<Router>
 			<AuthProvider>
 				<Routes>
-					<Route path='/login' element={<Login />} />
 					<Route path='/' element={<ProtectedRoute element={<Home />} />} />
+					<Route path='/login' element={<Login />} />
+					<Route path='/interviewsignup' element={<InterviewerSignUp />} />
+					<Route path='/studentsignup' element={<StudentSignUp />} />
+					<Route path='*' element={<Login />} />
 				</Routes>
 			</AuthProvider>
 		</Router>

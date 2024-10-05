@@ -60,15 +60,18 @@ const Login = () => {
 									placeholder='Password'
 									className='px-4 py-2 rounded-3xl text-black w-full text-[14px] outline-none'
 								/>
-								<button className='px-4 py-2 bg-gray-300 hover:bg-gray-600 duration-300 hover:text-white rounded-3xl text-black font-medium w-full'>
+								<button className='px-4 py-2 bg-gray-400 hover:bg-gray-600 duration-300 hover:text-white rounded-3xl text-black font-medium w-full'>
 									Login
 								</button>
 							</form>
 							<p className='text-sm text-gray-300'>
-								Don't have a account? Sign Up
+								Don't have a account?
+								<Link to='/interviewsignup' className='ml-2 font-semibold'>
+									Sign Up
+								</Link>
 							</p>
 							<button
-								className='mt-4 px-4 py-2 bg-red-300 duration-300 hover:bg-red-400 rounded-3xl text-black font-medium'
+								className='text-sm mt-4 px-4 py-2 bg-red-500 duration-300 hover:bg-red-600 rounded-3xl font-medium w-2/3'
 								onClick={handleBackClick}>
 								Back to Role Selection
 							</button>
@@ -101,15 +104,18 @@ const Login = () => {
 									placeholder='Password'
 									className='px-4 py-2 rounded-3xl text-black w-full text-[14px] outline-none'
 								/>
-								<button className='px-4 py-2 bg-gray-300 hover:bg-gray-600 duration-300 hover:text-white rounded-3xl text-black font-medium w-full'>
+								<button className='px-4 py-2 bg-gray-400 hover:bg-gray-600 duration-300 hover:text-white rounded-3xl text-black font-medium w-full'>
 									Login
 								</button>
 							</form>
 							<p className='text-sm text-gray-300'>
-								Don't have a account? Sign Up
+								Don't have a account?
+								<Link to='/studentsignup' className='ml-2 font-semibold'>
+									Sign Up
+								</Link>
 							</p>
 							<button
-								className='mt-4 px-4 py-2 bg-red-300 duration-300 hover:bg-red-400 rounded-3xl text-black font-medium'
+								className='mt-4 px-4 py-2 bg-red-500 duration-300 hover:bg-red-600 rounded-3xl font-medium w-2/3 text-sm'
 								onClick={handleBackClick}>
 								Back to Role Selection
 							</button>
