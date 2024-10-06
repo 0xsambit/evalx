@@ -1,13 +1,27 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { auth, createUserWithEmailAndPassword } from "../../firebaseConfig";
+
 const InterviewerSignUp = () => {
+	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
-	const handleSubmit = (e) => {
+	const navigate = useNavigate();
+	const handleSubmit = async (e) => {
 		e.preventDefault();
 		if (password !== confirmPassword) {
 			alert("Passwords do not match");
 			return;
+		}
+		try {
+			await createUserWithEmailAndPassword(auth, email, password);
+			alert("Signup successful");
+			navigate("/login");
+		} catch (error) {
+			alert("Signup failed: " + error.message);
+			setEmail("");
+			setPassword("");
+			setConfirmPassword("");
 		}
 	};
 	return (
@@ -40,6 +54,8 @@ const InterviewerSignUp = () => {
 								placeholder='Enter your email'
 								className='px-4 py-2 w-full rounded-3xl text-black text-[14px] outline-none'
 								required
+								value={email}
+								onChange={(e) => setEmail(e.target.value)}
 							/>
 							<input
 								type='password'

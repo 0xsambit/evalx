@@ -1,6 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 const InterviewerSignUp = () => {
+	const [password, setPassword] = useState("");
+	const [confirmPassword, setConfirmPassword] = useState("");
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		if (password !== confirmPassword) {
+			alert("Passwords do not match");
+			return;
+		}
+	};
 	return (
 		<section className='w-full h-screen bg-primary font-poppins'>
 			<div className='text-white flex justify-center items-center h-screen flex-col'>
@@ -17,7 +27,9 @@ const InterviewerSignUp = () => {
 							Student Signup
 						</h2>
 
-						<form className='flex flex-col gap-4 w-full justify-center items-center my-10'>
+						<form
+							className='flex flex-col gap-4 w-full justify-center items-center my-10'
+							onSubmit={handleSubmit}>
 							<input
 								type='text'
 								placeholder='Enter your full name'
@@ -35,12 +47,16 @@ const InterviewerSignUp = () => {
 								placeholder='Password'
 								className='px-4 py-2 rounded-3xl text-black w-full text-[14px] outline-none'
 								required
+								security
+								onChange={(e) => setPassword(e.target.value)}
 							/>
 							<input
 								type='password'
 								placeholder='Confirm Password'
 								className='px-4 py-2 rounded-3xl text-black w-full text-[14px] outline-none'
 								required
+								security
+								onChange={(e) => setConfirmPassword(e.target.value)}
 							/>
 
 							<label className='text-[12px] flex justify-center items-center gap-2'>
