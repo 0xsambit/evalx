@@ -1,8 +1,11 @@
 import React, { useState } from "react";
-import { images } from "../constants";
-import { Link } from "react-router-dom";
+import { auth, signInWithEmailAndPassword } from "../../firebaseConfig";
+import { Link, useNavigate } from "react-router-dom";
 const Login = () => {
 	const [role, setRole] = useState("");
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+	const navigate = useNavigate();
 
 	const handleRoleSelection = (selectedRole) => {
 		setRole(selectedRole);
@@ -12,6 +15,22 @@ const Login = () => {
 		setRole("");
 	};
 
+	const handleLogin = async (e) => {
+		e.preventDefault();
+		try {
+			const user = await signInWithEmailAndPassword(auth, email, password);
+			alert("Logged in successfully");
+			if (role === "recruiter") {
+				navigate("/recruiter");
+			} else {
+				navigate("/student");
+			}
+		} catch (error) {
+			alert("Login failed: " + error.message);
+			setEmail("");
+			setPassword("");
+		}
+	};
 	return (
 		<section className='w-full h-screen bg-primary font-poppins'>
 			<div className='text-white flex justify-center items-center h-screen flex-col'>
@@ -49,16 +68,25 @@ const Login = () => {
 							<p className='text-center text-gray-400 font-poppins'>
 								Welcome Back
 							</p>
-							<form className='flex flex-col gap-4 w-full justify-center items-center my-10'>
+							<form
+								className='flex flex-col gap-4 w-full justify-center items-center my-10'
+								onSubmit={handleLogin}>
 								<input
 									type='email'
 									placeholder='Enter your email'
 									className='px-4 py-2 w-full rounded-3xl text-black text-[14px] outline-none'
+									required
+									value={email}
+									onChange={(e) => setEmail(e.target.value)}
 								/>
 								<input
 									type='password'
 									placeholder='Password'
 									className='px-4 py-2 rounded-3xl text-black w-full text-[14px] outline-none'
+									value={password}
+									onChange={(e) => setPassword(e.target.value)}
+									required
+									security
 								/>
 								<button className='px-4 py-2 bg-gray-400 hover:bg-gray-600 duration-300 hover:text-white rounded-3xl text-black font-medium w-full'>
 									Login
