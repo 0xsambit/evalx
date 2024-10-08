@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { auth, signInWithEmailAndPassword } from "../../firebaseConfig";
 import { Link, useNavigate } from "react-router-dom";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../../firebaseConfig";
+
 const Login = () => {
 	const [role, setRole] = useState("");
 	const [email, setEmail] = useState("");
@@ -18,15 +21,26 @@ const Login = () => {
 	const handleLogin = async (e) => {
 		e.preventDefault();
 		try {
-			const user = await signInWithEmailAndPassword(auth, email, password);
-			alert("Logged in successfully");
-			if (role === "recruiter") {
-				navigate("/recruiter");
+			const userCredential = await signInWithEmailAndPassword(
+				auth,
+				email,
+				password
+			);
+			const user = userCredential.user;
+
+			const userDoc = await getDoc(doc(db, role, user.uid));
+			if (userDoc.exists()) {
+				alert("Logged in successfully");
+				if (role === "recruiter") {
+					navigate("/recruiter");
+				} else {
+					navigate("/student");
+				}
 			} else {
-				navigate("/student");
+				alert("User not found");
 			}
 		} catch (error) {
-			alert("Login failed: " + error.message);
+			alert("Login failed");
 			setEmail("");
 			setPassword("");
 		}
@@ -121,16 +135,23 @@ const Login = () => {
 							<p className='text-center text-gray-400 font-poppins'>
 								Welcome Back
 							</p>
-							<form className='flex flex-col gap-4 w-full justify-center items-center my-10'>
+							<form
+								className='flex flex-col gap-4 w-full justify-center items-center my-10'
+								onSubmit={handleLogin}>
 								<input
 									type='email'
 									placeholder='Enter your email'
 									className='px-4 py-2 w-full rounded-3xl text-black text-[14px] outline-none'
+									required
+									onChange={(e) => setEmail(e.target.value)}
 								/>
 								<input
 									type='password'
 									placeholder='Password'
 									className='px-4 py-2 rounded-3xl text-black w-full text-[14px] outline-none'
+									required
+									security
+									onChange={(e) => setPassword(e.target.value)}
 								/>
 								<button className='px-4 py-2 bg-gray-400 hover:bg-gray-600 duration-300 hover:text-white rounded-3xl text-black font-medium w-full'>
 									Login
