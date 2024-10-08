@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { auth, createUserWithEmailAndPassword } from "../../firebaseConfig";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "../../firebaseConfig";
 
 const InterviewerSignUp = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
+
 	const navigate = useNavigate();
+
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		if (password !== confirmPassword) {
@@ -14,9 +18,20 @@ const InterviewerSignUp = () => {
 			return;
 		}
 		try {
-			await createUserWithEmailAndPassword(auth, email, password);
+			const userCredential = await createUserWithEmailAndPassword(
+				auth,
+				email,
+				password
+			);
+			const user = userCredential.user;
+
+			await setDoc(doc(db, "recruiter", user.uid), {
+				email: user.email,
+				role: "recruiter",
+			});
+
 			alert("Signup successful");
-			navigate("/login");
+			navigate("/recruiter");
 		} catch (error) {
 			alert("Signup failed: " + error.message);
 			setEmail("");
