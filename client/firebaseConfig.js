@@ -4,8 +4,10 @@ import {
 	getAuth,
 	createUserWithEmailAndPassword,
 	signInWithEmailAndPassword,
-	signInWithPopup,
 } from "firebase/auth";
+
+import { getFirestore } from "firebase/firestore";
+
 const firebaseConfig = {
 	apiKey: "AIzaSyDOd9UJ5mDEx4QbBobsFM7o3lKuigj2auY",
 	authDomain: "codemate-01.firebaseapp.com",
@@ -18,5 +20,6 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const db = getFirestore(app);
 
-export { auth, createUserWithEmailAndPassword, signInWithEmailAndPassword };
+export { auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, db };
