@@ -7,27 +7,20 @@ const Navbar = async () => {
     const session = await auth();
     return (
         <header className='flex justify-between items-center px-3 bg-secondary'>
-            <div className=''>
+            <div>
                 <Image src={logo} alt='' className='w-32 h-auto' />
             </div>
             {session && session.user ? (
-                <>
-                    <nav>
-                        <Link href='/user/profile'>
-                            <button>Profile</button>
-                        </Link>
-                        <form
-                            action={async () => {
-                                "use server";
-                                await signOut({ redirectTo: "/" });
-                            }}>
-                            <button type='submit'>Logout</button>
-                        </form>
-                        <Link href={`/user/${session?.id}`}>
-                            <span>{session?.user?.name}</span>
-                        </Link>
-                    </nav>
-                </>
+                <div className='flex justify-between items-center gap-5 text-black'>
+                    <Link href='/dashboard'>Dashboard</Link>
+                    <form
+                        action={async () => {
+                            "use server";
+                            await signOut({ redirectTo: "/" });
+                        }}>
+                        <button type='submit'>Logout</button>
+                    </form>
+                </div>
             ) : (
                 <form
                     action={async () => {
