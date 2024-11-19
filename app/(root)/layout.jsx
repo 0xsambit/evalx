@@ -1,5 +1,12 @@
+import Navbar from "@/app/components/Navbar";
+
 const HomeLayout = ({ children }) => {
-    return <>{children}</>;
+    return (
+        <>
+            <Navbar />
+            {children}
+        </>
+    );
 };
 
 export default HomeLayout;
