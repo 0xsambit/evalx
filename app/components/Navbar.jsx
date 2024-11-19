@@ -6,19 +6,26 @@ import Link from "next/link";
 const Navbar = async () => {
     const session = await auth();
     return (
-        <header className='flex justify-between items-center px-3 bg-secondary'>
+        <header className='flex justify-between items-center px-5 py-2 bg-secondary-200'>
             <div>
                 <Image src={logo} alt='' className='w-32 h-auto' />
             </div>
             {session && session.user ? (
-                <div className='flex justify-between items-center gap-5 text-black'>
-                    <Link href='/dashboard'>Dashboard</Link>
+                <div className='flex justify-around items-center text-black w-1/4'>
+                    <Link href='/dashboard' className='link'>
+                        Dashboard
+                    </Link>
+                    <Link href={`/user/${session.user.name}`} className='link'>
+                        Profile
+                    </Link>
                     <form
                         action={async () => {
                             "use server";
                             await signOut({ redirectTo: "/" });
                         }}>
-                        <button type='submit'>Logout</button>
+                        <button type='submit' className=' link'>
+                            Logout
+                        </button>
                     </form>
                 </div>
             ) : (
@@ -27,7 +34,9 @@ const Navbar = async () => {
                         "use server";
                         await signIn("google");
                     }}>
-                    <button type='submit'>Login</button>
+                    <button type='submit' className='link'>
+                        Login
+                    </button>
                 </form>
             )}
         </header>
