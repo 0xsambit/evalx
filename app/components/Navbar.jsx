@@ -11,9 +11,12 @@ const Navbar = async () => {
                 <Image src={logo} alt='' className='w-24 h-auto' />
             </div>
             {session && session.user ? (
-                <div className='flex justify-around items-center text-black w-1/4'>
+                <div className='flex justify-around items-center text-black w-1/3'>
                     <Link href='/dashboard' className='link'>
                         Dashboard
+                    </Link>
+                    <Link href='#pricing' className='link'>
+                        Pricing
                     </Link>
                     <Link href={`/user/${session.user.name}`} className='link'>
                         Profile
@@ -23,7 +26,7 @@ const Navbar = async () => {
                             "use server";
                             await signOut({ redirectTo: "/" });
                         }}>
-                        <button type='submit' className=' link'>
+                        <button type='submit' className='link'>
                             Logout
                         </button>
                     </form>
