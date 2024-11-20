@@ -1,4 +1,4 @@
-import { Computer, LaptopMinimalCheck, LayoutDashboardIcon, PersonStandingIcon, User } from "lucide-react";
+import { LaptopMinimalCheck, LayoutDashboardIcon, User } from "lucide-react";
 
 export const CardContent = [
      {
@@ -19,4 +19,25 @@ export const CardContent = [
             desc: "Get detailed insights on candidate performance on ur analytics dashboard",
             icon: <LayoutDashboardIcon size={50} />,
         },
+]
+
+export const Testimonials = [
+    {
+        id: 1,
+        name: "John Doe",
+        tagline: " Great platform to conduct interviews",
+        desc: "I have been using EvalX for a while now and I must say it is the best platform to conduct interviews. The platform is very user-friendly and easy to use. I would recommend this platform to everyone.",
+    },
+    {
+        id: 2,
+        name: "Jane Doe",
+        tagline: " Great platform to conduct interviews",
+        desc: "I have been using EvalX for a while now and I must say it is the best platform to conduct interviews. The platform is very user-friendly and easy to use. I would recommend this platform to everyone.",
+    },
+    {
+        id: 3,
+        name: "John Doe",
+        tagline: " Great platform to conduct interviews",
+        desc: "I have been using EvalX for a while now and I must say it is the best platform to conduct interviews. The platform is very user-friendly and easy to use. I would recommend this platform to everyone.",
+    }
 ]
