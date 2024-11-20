@@ -1,17 +1,17 @@
-import { Computer, LayoutDashboardIcon, PersonStandingIcon } from "lucide-react";
+import { Computer, LaptopMinimalCheck, LayoutDashboardIcon, PersonStandingIcon, User } from "lucide-react";
 
 export const CardContent = [
      {
             id: 1,
             title: "Real Time Coding",
             desc: "Conduct live coding interviews with real time collaboration and syntax highlighting",
-            icon: <Computer size={50} />,
+            icon: <LaptopMinimalCheck size={50} />,
         },
         {
             id: 2,
             title: "Candidate Evaluation",
             desc: "Evaluate candidates efficiently with our inbuilt code evaluation system and comprehensive report",
-            icon: <PersonStandingIcon size={50} />,
+            icon: <User size={50} />,
         },
         {
             id: 3,

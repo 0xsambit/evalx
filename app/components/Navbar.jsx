@@ -8,7 +8,7 @@ const Navbar = async () => {
     return (
         <header className='flex justify-between items-center px-5 py-2 bg-secondary-200'>
             <div>
-                <Image src={logo} alt='' className='w-32 h-auto' />
+                <Image src={logo} alt='' className='w-24 h-auto' />
             </div>
             {session && session.user ? (
                 <div className='flex justify-around items-center text-black w-1/4'>
