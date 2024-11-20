@@ -15,7 +15,7 @@ const Home = async () => {
                     className='bg-image'
                 />
                 <div className='overlay-content my-5 flex flex-col justify-center items-center gap-2 text-center py-10'>
-                    <h1 className='text-white text-4xl font-bold'>
+                    <h1 className='text-white text-5xl font-bold'>
                         Welcome to EvalX
                     </h1>
                     <p className='text-white text-lg font-semibold'>
