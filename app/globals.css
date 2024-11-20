@@ -54,7 +54,16 @@
         @apply px-4;
         @apply my-5;
         @apply font-semibold;
+        @apply hover:bg-gray-800;
+        @apply duration-300;
+        @apply hover:text-white
     }
+    
+}
+
+.bg-bgColor {
+    background: rgb(0, 0, 0);
+        background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(23, 23, 23, 1) 81%, rgba(60, 60, 60, 1) 100%);
 }
 
 .bg-container {
@@ -77,12 +86,12 @@
 .overlay-content {
     position: relative;
     z-index: 1;
-    background-color: #00000076;
-    height: 100%;
+    background-color: #00000086;
+    height: 350px;
 }
 
 @layer base {
-  :root {
+    :root {
         --radius: 0.5rem;
     }
 }
