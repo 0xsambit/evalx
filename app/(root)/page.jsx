@@ -9,7 +9,7 @@ import {
     CarouselItem,
     CarouselNext,
     CarouselPrevious,
-} from "@/components/ui/carousel";
+} from "@/app/components/ui/carousel";
 const Home = async () => {
     const session = await auth();
 
@@ -82,10 +82,10 @@ const Home = async () => {
             </div>
             <hr className='bg-white w-full mt-10' />
             <div className='flex justify-center items-center px-16 flex-col '>
-                <h1 className='font-bold text-4xl my-10'>Testimonials ...</h1>
+                <h1 className='font-bold text-4xl mt-10'>Testimonials</h1>
                 <Carousel
-                    className='w-1/2'
-                    opts={{ align: "start", loop: true }}>
+                    className='w-1/2 bg-[#141414] border border-gray-500 rounded-xl px-5 my-10 pb-5 hover:bg-[#191919] duration-300 ease-in-out hover:cursor-default'
+                    opts={{ loop: true }}>
                     <CarouselPrevious className='bg-black border-none' />
 
                     <CarouselNext className='bg-black border-none' />
@@ -97,7 +97,7 @@ const Home = async () => {
                                     <h1 className='font-bold text-2xl'>
                                         {item.title}
                                     </h1>
-                                    <p className='text-center'>{item.desc}</p>
+                                    <p className='text-justify'>{item.desc}</p>
                                     <span className='font-semibold text-lg'>
                                         - {item.name}
                                     </span>
