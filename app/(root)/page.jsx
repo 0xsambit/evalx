@@ -10,11 +10,12 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/app/components/ui/carousel";
+import ComingSoon from "@/app/components/ComingSoon";
 const Home = async () => {
     const session = await auth();
 
     return (
-        <section className='flex flex-col items-start justify-center w-full h-full bg-bgColor -z-0 text-white'>
+        <section className='flex flex-col items-start justify-center w-full h-full bg-black -z-0 text-white'>
             <div className='bg-container z-10 py-36'>
                 <Image
                     src={bgImage}
@@ -80,11 +81,11 @@ const Home = async () => {
                     ))}
                 </div>
             </div>
-            <hr className='bg-white w-full mt-10' />
+            <hr className='w-[90%] mt-10 flex justify-center items-center m-auto border-gray-400' />
             <div className='flex justify-center items-center px-16 flex-col '>
                 <h1 className='font-bold text-4xl mt-10'>Testimonials</h1>
                 <Carousel
-                    className='w-1/2 bg-[#141414] border border-gray-500 rounded-xl px-5 my-10 pb-5 hover:bg-[#191919] duration-300 ease-in-out hover:cursor-default'
+                    className='w-1/2 bg-[#141414] border border-gray-500 rounded-xl px-5 my-10 pb-5 hover:bg-[#1a1a1f] duration-300 ease-in-out hover:cursor-default'
                     opts={{ loop: true }}>
                     <CarouselPrevious className='bg-black border-none' />
 
@@ -106,6 +107,13 @@ const Home = async () => {
                         ))}
                     </CarouselContent>
                 </Carousel>
+            </div>
+            <hr className='w-[90%] mt-10 flex justify-center items-center m-auto border-gray-400' />
+            <div className='w-full flex justify-center items-center flex-col'>
+                <h1 className='font-bold text-4xl text-center my-10'>
+                    Workflow of our product
+                </h1>
+                <ComingSoon />
             </div>
         </section>
     );
