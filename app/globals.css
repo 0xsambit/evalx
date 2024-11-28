@@ -97,3 +97,9 @@
     height: 350px;
 }
 
+
+@media (max-width: 1024px) {
+  body > *:not(.small-screen-message) {
+    display: none;
+  }
+}
