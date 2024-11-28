@@ -1,8 +1,9 @@
 import { auth, signIn } from "@/auth";
 import Link from "next/link";
 import bgImage from "@/app/assets/maxresdefault.jpg";
+import Coming from "@/app/assets/coming-soon.jpeg";
 import Image from "next/image";
-import { CardContent, Testimonials } from "@/app/content";
+import { CardContent, Testimonials, logo, FAQ } from "@/app/content";
 import {
     Carousel,
     CarouselContent,
@@ -10,7 +11,14 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/app/components/ui/carousel";
-import ComingSoon from "@/app/components/ComingSoon";
+
+import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+} from "@/components/ui/accordion";
+import Footer from "../components/Footer";
 const Home = async () => {
     const session = await auth();
 
@@ -30,7 +38,7 @@ const Home = async () => {
                     </p>
                     {session ? (
                         <div className='flex justify-center items-center gap-5 '>
-                            <Link href={`/dashboard/${session.user.name}`}>
+                            <Link href='/dashboard'>
                                 <button
                                     type='button'
                                     className='button text-black'>
@@ -61,7 +69,7 @@ const Home = async () => {
                     <h1 className='font-bold text-3xl'>
                         What&apos;s in EvalX?
                     </h1>
-                    <span className='text-gray-300 text-lg'>
+                    <span className='text-gray-300 text-lg font-medium'>
                         Everything you need to hire an developer
                     </span>
                 </div>
@@ -69,11 +77,11 @@ const Home = async () => {
                     {CardContent.map((card) => (
                         <div
                             key={card.id}
-                            className='bg-white rounded-lg shadow-lg p-5 m-5 w-96 text-center text-black'>
-                            <div className='flex items-center justify-center mb-3'>
+                            className='bg-white rounded-xl shadow-lg p-5 m-4 w-96 text-center text-black'>
+                            <div className='flex items-center justify-center mb-2'>
                                 {card.icon}
                             </div>
-                            <h1 className='text-xl font-semibold mb-2'>
+                            <h1 className='text-2xl font-semibold mb-2'>
                                 {card.title}
                             </h1>
                             <p className='text-sm font-regular'>{card.desc}</p>
@@ -81,11 +89,11 @@ const Home = async () => {
                     ))}
                 </div>
             </div>
-            <hr className='w-[90%] mt-10 flex justify-center items-center m-auto border-gray-400' />
-            <div className='flex justify-center items-center px-16 flex-col '>
+            {/* <hr className='w-[90%] mt-10 flex justify-center items-center m-auto border-gray-400' /> */}
+            <div className='flex justify-center items-center px-16 flex-col my-10'>
                 <h1 className='font-bold text-4xl mt-10'>Testimonials</h1>
                 <Carousel
-                    className='w-1/2 bg-[#141414] border border-gray-500 rounded-xl px-5 my-10 pb-5 hover:bg-[#1a1a1f] duration-300 ease-in-out hover:cursor-default'
+                    className=' flex flex-col justify-center items-center w-1/2 h-60 bg-[#141414] border border-gray-500 rounded-xl px-5 my-10 pb-5 hover:bg-[#1a1a1f] duration-300 ease-in-out hover:cursor-default'
                     opts={{ loop: true }}>
                     <CarouselPrevious className='bg-black border-none' />
 
@@ -96,7 +104,7 @@ const Home = async () => {
                             <CarouselItem key={item.id}>
                                 <div className='flex flex-col items-center justify-center gap-5'>
                                     <h1 className='font-bold text-2xl'>
-                                        {item.title}
+                                        {item.tagline}
                                     </h1>
                                     <p className='text-justify'>{item.desc}</p>
                                     <span className='font-semibold text-lg'>
@@ -108,13 +116,58 @@ const Home = async () => {
                     </CarouselContent>
                 </Carousel>
             </div>
-            <hr className='w-[90%] mt-10 flex justify-center items-center m-auto border-gray-400' />
-            <div className='w-full flex justify-center items-center flex-col'>
-                <h1 className='font-bold text-4xl text-center my-10'>
-                    Workflow of our product
+            <div className='w-full px-20 flex flex-col justify-center items-center my-20 gap-7 font-roboto'>
+                <h1 className='font-medium text-4xl'>
+                    Easily integrated with popular tools
                 </h1>
-                <ComingSoon />
+                <div className='flex justify-center items-center m-auto gap-5'>
+                    <Image
+                        src={logo.github}
+                        alt='github logo'
+                        className='w-20'
+                    />
+                    <Image
+                        src={logo.google}
+                        alt='github logo'
+                        className='w-20'
+                    />
+                    <Image
+                        src={logo.slack}
+                        alt='github logo'
+                        className='w-20'
+                    />
+                </div>
             </div>
+            <hr className='w-[90%] mt-10 flex justify-center items-center m-auto border-gray-500' />
+            <div className='flex flex-col justify-center items-center m-auto my-10'>
+                <h1 className='font-medium text-4xl font-roboto'>
+                    Demo Workflow
+                </h1>
+                <Image src={Coming} alt='coming soon' className='w-[600px]' />
+            </div>
+            <hr className='w-[90%] mt-10 flex justify-center items-center m-auto border-gray-500' />
+            <div className='flex flex-col justify-center items-center m-auto my-10 w-full'>
+                <h1 className='font-medium text-4xl font-roboto '>
+                    FAQ - Frequently Asked Questions
+                </h1>
+                <Accordion type='single' collapsible className='w-1/2 mt-5'>
+                    {FAQ.map((item) => (
+                        <AccordionItem
+                            key={item.id}
+                            value={`item-${item.id}`}
+                            className='my-3'>
+                            <AccordionTrigger className='text-xl'>
+                                {item.tagline}
+                            </AccordionTrigger>
+                            <AccordionContent className='text-base'>
+                                {item.desc}
+                            </AccordionContent>
+                        </AccordionItem>
+                    ))}
+                </Accordion>
+            </div>
+            <hr className='w-full mt-10 flex justify-center items-center m-auto border-gray-500' />
+            <Footer />
         </section>
     );
 };
