@@ -38,11 +38,11 @@ const Home = async () => {
                     </p>
                     {session ? (
                         <div className='flex justify-center items-center gap-5 '>
-                            <Link href='/dashboard'>
+                            <Link href='/create-profile'>
                                 <button
                                     type='button'
                                     className='button text-black'>
-                                    Get Started
+                                    Go to Dashboard
                                 </button>
                             </Link>
                             <Link
