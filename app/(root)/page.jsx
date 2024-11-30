@@ -17,7 +17,7 @@ import {
     AccordionContent,
     AccordionItem,
     AccordionTrigger,
-} from "@/components/ui/accordion";
+} from "@/app/components/ui/accordion";
 import Footer from "../components/Footer";
 const Home = async () => {
     const session = await auth();
