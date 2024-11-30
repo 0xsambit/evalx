@@ -12,6 +12,7 @@ module.exports = {
                 primary: {
                     100: "#5a5a5a",
                     200: "#3b3b3b",
+                    300: "#1f1f1f",
                     DEFAULT: "#161616",
                 },
                 secondary: {
@@ -21,11 +22,6 @@ module.exports = {
                 },
                 astral: "#346DA3",
                 glacier: "#81A7C2",
-            },
-            borderRadius: {
-                lg: "var(--radius)",
-                md: "calc(var(--radius) - 2px)",
-                sm: "calc(var(--radius) - 4px)",
             },
             fontFamily: {
                 roboto: ["Roboto", "sans-serif"],
