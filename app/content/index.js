@@ -69,4 +69,38 @@ export const FAQ = [
         desc: "Yes, EvalX is designed to be user-friendly and intuitive. You can easily set up interviews, invite candidates, and evaluate their performance with just a few clicks. The platform also offers real-time collaboration tools to make the interview process seamless.",
     },
 ];
+
+export const skills = [
+    {
+        id: 1,
+        name: "Next.js",
+        code: "next",
+    },
+    {
+        id: 2,
+        name: "Javascript",
+        code: "js",
+    },
+    {
+        id: 3,
+        name: "Git",
+        code: "git",
+    },
+    {
+        id: 4,
+        name: "C++",
+        code: "cpp",
+    },
+    {
+        id: 5,
+        name: "React",
+        code: "react",
+    },
+
+    {
+        id: 6,
+        name: "MongoDB",
+        code: "mongodb",
+    },
+];
 export { logo };
