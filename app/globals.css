@@ -57,7 +57,7 @@
         @apply px-4;
         @apply my-5;
         @apply font-semibold;
-        @apply hover:bg-gray-800;
+        @apply hover:bg-black;
         @apply duration-300;
         @apply hover:text-white;
     }
