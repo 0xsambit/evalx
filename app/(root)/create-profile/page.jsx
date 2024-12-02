@@ -1,13 +1,20 @@
 "use client";
 
 import { getEmail } from "@/app/action";
-import { Checkbox } from "@/components/ui/checkbox";
+import { Checkbox } from "@/app/components/ui/checkbox";
 import Image from "next/image";
 import { skills } from "@/app/content";
 import { useState, useEffect } from "react";
 import { Button } from "@/app/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
+import { Textarea } from "@/app/components/ui/textarea";
 import Footer from "@/app/components/Footer";
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@/app/components/ui/select";
 const Profile = () => {
     const [role, setRole] = useState("Candidate");
     const [email, setEmail] = useState("");
@@ -40,9 +47,9 @@ const Profile = () => {
                     Choose your role to get started -{" "}
                     <button
                         className={` rounded-xl px-4 ${
-                            role == "Recruiter"
-                                ? "bg-orange-500 text-white"
-                                : "bg-white text-black"
+                            role == "Recruiter" ?
+                                "bg-orange-500 text-white"
+                            :   "bg-white text-black"
                         }`}
                         onClick={() => setRole("Recruiter")}>
                         Recruiter
@@ -50,9 +57,9 @@ const Profile = () => {
                     or{" "}
                     <button
                         className={` rounded-xl px-4 ${
-                            role == "Candidate"
-                                ? "bg-orange-500 text-white"
-                                : "bg-white text-black"
+                            role == "Candidate" ?
+                                "bg-orange-500 text-white"
+                            :   "bg-white text-black"
                         }`}
                         onClick={() => setRole("Candidate")}>
                         Candidate
@@ -105,7 +112,7 @@ const Profile = () => {
                         </h1>
                         <label htmlFor='avatar' className='cursor-pointer'>
                             <div className='w-32 h-32 bg-gray-300 text-black rounded-full flex items-center justify-center overflow-hidden border border-dashed border-gray-500'>
-                                {image ? (
+                                {image ?
                                     <Image
                                         src={image}
                                         alt='Profile'
@@ -113,11 +120,10 @@ const Profile = () => {
                                         width={128}
                                         height={128}
                                     />
-                                ) : (
-                                    <span className='text-sm font-medium'>
+                                :   <span className='text-sm font-medium'>
                                         Upload Image
                                     </span>
-                                )}
+                                }
                             </div>
                         </label>
                         <input
@@ -130,7 +136,7 @@ const Profile = () => {
                     </div>
                 </div>
             </div>
-            {role == "Candidate" ? (
+            {role == "Candidate" ?
                 <>
                     <div className='section'>
                         <h1 className='text-3xl font-semibold text-center my-3'>
@@ -217,9 +223,9 @@ const Profile = () => {
                         <h1 className='font-semibold text-3xl text-center mb-5'>
                             Additional Information
                         </h1>
-                        <p className='mx-10 font-medium text-xl'>
+                        <p className='mx-10 font-medium text-xl my-5'>
                             {" "}
-                            Describe Yourself
+                            Describe Yourself -
                         </p>
                         <Textarea
                             placeholder='Describe abit about yourself'
@@ -232,8 +238,7 @@ const Profile = () => {
                         </Button>
                     </div>
                 </>
-            ) : (
-                <>
+            :   <>
                     <div className='section'>
                         <h1 className='text-3xl font-semibold text-center my-3'>
                             Company Details
@@ -267,10 +272,61 @@ const Profile = () => {
                                     className='bg-inherit border border-white outline-none px-5 py-2 rounded-xl text-gray-300 w-1/2'
                                 />
                             </div>
+                            <div className='flex justify-start items-center gap-10 w-full my-5'>
+                                <label
+                                    htmlFor='portfolio'
+                                    className='font-medium text-lg w-1/4'>
+                                    Experience Requirement
+                                </label>
+                                <Select>
+                                    <SelectTrigger className='w-1/2'>
+                                        <SelectValue placeholder='Experiance Requirement' />
+                                    </SelectTrigger>
+                                    <SelectContent className='bg-primary-300 text-white'>
+                                        <SelectItem value='Internship'>
+                                            Internship
+                                        </SelectItem>
+                                        <SelectItem value='Entry-Level'>
+                                            Entry-Level
+                                        </SelectItem>
+                                        <SelectItem value='Associate'>
+                                            Associate
+                                        </SelectItem>
+                                        <SelectItem value='Mid-Senior'>
+                                            Mid-Senior Level
+                                        </SelectItem>
+                                        <SelectItem value='Director'>
+                                            Director
+                                        </SelectItem>
+                                        <SelectItem value='Executive'>
+                                            Executive
+                                        </SelectItem>
+                                    </SelectContent>
+                                </Select>
+                            </div>
                         </form>
                     </div>
+                    <div className='section'>
+                        <h1 className='font-semibold text-3xl text-center mb-5'>
+                            Additional Information
+                        </h1>
+
+                        <p className='mx-10 font-medium text-xl my-5'>
+                            {" "}
+                            Any additional Information -
+                        </p>
+                        <Textarea
+                            placeholder='Describe abit about the company and your role in it'
+                            className='w-2/3 m-auto'
+                        />
+                    </div>
+                    <div className='flex justify-center items-center m-auto w-full my-10'>
+                        <Button className='bg-white text-black font-medium text-lg rounded-xl w-2/3 hover:bg-black hover:text-white duration-200 ease-linear'>
+                            Submit your details
+                        </Button>
+                    </div>
                 </>
-            )}
+            }
             <Footer />
         </section>
     );
