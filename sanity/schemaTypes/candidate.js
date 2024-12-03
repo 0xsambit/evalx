@@ -29,7 +29,6 @@ export const candidate = defineType({
             name: "image",
             type: "url",
         }),
-
         defineField({
             name: "skills",
             type: "array",
