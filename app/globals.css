@@ -58,7 +58,7 @@
         @apply my-5;
         @apply font-semibold;
         @apply hover:bg-black;
-        @apply duration-300;
+        @apply duration-200;
         @apply hover:text-white;
     }
 }
