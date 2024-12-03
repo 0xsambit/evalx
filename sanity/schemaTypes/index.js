@@ -1,5 +1,5 @@
-import { recruiter } from "./recruiter";
+import { candidate } from "./candidate";
 
 export const schema = {
-    types: [recruiter],
+    types: [candidate],
 };
