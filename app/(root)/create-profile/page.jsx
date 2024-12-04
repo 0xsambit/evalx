@@ -82,7 +82,7 @@ const Profile = () => {
 
                         <input
                             type='email'
-                            value={email}
+                            value={email || ""}
                             readOnly
                             className='bg-inherit border border-white outline-none px-5 py-2 rounded-xl w-3/4 text-gray-300'
                             required
