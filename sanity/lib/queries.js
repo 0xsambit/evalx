@@ -14,3 +14,14 @@ export const CANDIDATEE_QUERY = defineQuery(`*[_type == "candidate"]{
   portfolio,
   about
 }`);
+
+export const RECRUITER_QUERY = defineQuery(`*[_type == "recruiter"]{
+  id,
+  name,
+  email,
+  mobile,
+  image,
+  company,
+  role,
+  info,
+}`);
