@@ -1,6 +1,7 @@
 const { defineQuery } = require("next-sanity");
 
-export const CANDIDATEE_QUERY = defineQuery(`*[_type == "candidate"]{
+export const CANDIDATEE_QUERY =
+    defineQuery(`*[_type == "candidate" && email == $email ]{
   id,
   name,
   email,
@@ -15,7 +16,8 @@ export const CANDIDATEE_QUERY = defineQuery(`*[_type == "candidate"]{
   about
 }`);
 
-export const RECRUITER_QUERY = defineQuery(`*[_type == "recruiter"]{
+export const RECRUITER_QUERY =
+    defineQuery(`*[_type == "recruiter" && email == $email ]{
   id,
   name,
   email,
