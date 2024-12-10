@@ -10,7 +10,7 @@ const Navbar = async () => {
             <div>
                 <Image src={logo} alt='' className='w-24 h-auto' />
             </div>
-            {session && session.user ? (
+            {session && session.user ?
                 <div className='flex justify-around items-center text-black w-1/3'>
                     <Link href='/dashboard' className='link'>
                         Dashboard
@@ -31,8 +31,7 @@ const Navbar = async () => {
                         </button>
                     </form>
                 </div>
-            ) : (
-                <form
+            :   <form
                     action={async () => {
                         "use server";
                         await signIn("google");
@@ -41,7 +40,7 @@ const Navbar = async () => {
                         Login
                     </button>
                 </form>
-            )}
+            }
         </header>
     );
 };
