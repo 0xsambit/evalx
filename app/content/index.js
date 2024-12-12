@@ -103,4 +103,34 @@ export const skills = [
         code: "mongodb",
     },
 ];
+
+export const interviews = [
+    {
+        id: 1,
+        title: "Design a credit card checkout flow",
+        date: new Date().toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+        }),
+    },
+    {
+        id: 2,
+        title: "Design a credit card checkout flow",
+        date: new Date().toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+        }),
+    },
+    {
+        id: 3,
+        title: "Design a credit card checkout flow",
+        date: new Date().toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+        }),
+    },
+];
 export { logo };
