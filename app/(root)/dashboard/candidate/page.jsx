@@ -8,7 +8,6 @@ import Footer from "@/app/components/Footer";
 import {
     Dialog,
     DialogContent,
-    DialogDescription,
     DialogHeader,
     DialogTitle,
     DialogTrigger,
@@ -76,17 +75,17 @@ const Candiate = async () => {
                             </DialogTrigger>
                             <DialogContent className='sm:max-w-md bg-black text-white'>
                                 <DialogHeader>
-                                    <DialogTitle className='font-semibold text-xl underline'>
+                                    <DialogTitle className='font-bold text-2xl text-primary-100 mb-2'>
                                         Interview Feedback
                                     </DialogTitle>
-                                    <DialogDescription className='text-white'>
-                                        <p>
+                                    <div className='text-white font-extralight leading-7'>
+                                        <div>
                                             Great job on the interview! You
                                             demonstrated strong problem-solving
                                             skills and a good understanding of
                                             design principles. However, there
                                             are a few areas for improvement:
-                                        </p>
+                                        </div>
                                         <ul className='list-disc list-inside'>
                                             <li>
                                                 Consider improving the user flow
@@ -107,7 +106,7 @@ const Candiate = async () => {
                                             seeing more of your work in the
                                             future.
                                         </p>
-                                    </DialogDescription>
+                                    </div>
                                 </DialogHeader>
                             </DialogContent>
                         </Dialog>
