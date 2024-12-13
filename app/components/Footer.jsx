@@ -2,7 +2,7 @@ import Image from "next/image";
 import logo from "@/app/assets/logo-white.png";
 const Footer = () => {
     return (
-        <div className='px-16 my-5 flex justify-around items-start m-auto w-full'>
+        <div className='px-16 mt-5 flex justify-between items-start m-auto w-full'>
             <Image src={logo} alt='logo' className='w-32' />
             <div>
                 <h1 className='text-xl mb-5 font-semibold'>Resources</h1>

@@ -12,9 +12,9 @@ const Navbar = async () => {
             </div>
             {session && session.user ?
                 <div className='flex justify-around items-center text-black w-1/3'>
-                    <Link href='/dashboard' className='link'>
+                    {/* <Link href='/dashboard' className='link'>
                         Dashboard
-                    </Link>
+                    </Link> */}
                     <Link href='#pricing' className='link'>
                         Pricing
                     </Link>
