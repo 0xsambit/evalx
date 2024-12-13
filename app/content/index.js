@@ -133,4 +133,22 @@ export const interviews = [
         }),
     },
 ];
+
+export const insights = [
+    {
+        id: 1,
+        title: "Average Interview Score",
+        value: "4.5",
+    },
+    {
+        id: 2,
+        title: "Total Interviews Conducted",
+        value: "100",
+    },
+    {
+        id: 3,
+        title: "Total Feedbacks Received",
+        value: "50",
+    },
+];
 export { logo };
