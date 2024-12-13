@@ -2,7 +2,17 @@ import { auth } from "@/auth";
 import Image from "next/image";
 import card from "@/app/assets/card.png";
 import { BriefcaseBusiness } from "lucide-react";
-import { interviews } from "@/app/content";
+import { insights, interviews } from "@/app/content";
+import Chart from "@/app/components/Chart";
+import Footer from "@/app/components/Footer";
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from "@/app/components/ui/dialog";
 
 const Candiate = async () => {
     const session = await auth();
@@ -58,18 +68,73 @@ const Candiate = async () => {
                                 <p className='text-primary-100'>{e.date}</p>
                             </div>
                         </div>
-                        <button className='button text-black'>
-                            View feedback
-                        </button>
+                        <Dialog>
+                            <DialogTrigger asChild>
+                                <button className='button text-black'>
+                                    View Feedback
+                                </button>
+                            </DialogTrigger>
+                            <DialogContent className='sm:max-w-md bg-black text-white'>
+                                <DialogHeader>
+                                    <DialogTitle className='font-semibold text-xl underline'>
+                                        Interview Feedback
+                                    </DialogTitle>
+                                    <DialogDescription className='text-white'>
+                                        <p>
+                                            Great job on the interview! You
+                                            demonstrated strong problem-solving
+                                            skills and a good understanding of
+                                            design principles. However, there
+                                            are a few areas for improvement:
+                                        </p>
+                                        <ul className='list-disc list-inside'>
+                                            <li>
+                                                Consider improving the user flow
+                                                to make it more intuitive.
+                                            </li>
+                                            <li>
+                                                Pay attention to the alignment
+                                                and spacing of elements.
+                                            </li>
+                                            <li>
+                                                Try to use more consistent color
+                                                schemes.
+                                            </li>
+                                        </ul>
+                                        <p>
+                                            Overall, we were impressed with your
+                                            performance and look forward to
+                                            seeing more of your work in the
+                                            future.
+                                        </p>
+                                    </DialogDescription>
+                                </DialogHeader>
+                            </DialogContent>
+                        </Dialog>
                     </div>
                 </div>
             ))}
-
+            <h1 className='text-2xl font-bold my-5'>Performance Insights</h1>
+            <Chart />
+            <div className='flex items-center justify-center m-auto flex-wrap'>
+                {insights.map((card) => (
+                    <div
+                        key={card.id}
+                        className='bg-black rounded-xl shadow-lg p-5 m-4 w-96 text-center'>
+                        <h1 className='text-base font-medium mb-2'>
+                            {card.title}
+                        </h1>
+                        <p className='text-3xl font-bold'>{card.value}</p>
+                    </div>
+                ))}
+            </div>
             <div className='w-full flex justify-center items-center m-auto'>
                 <button className='button text-black w-1/2'>
                     Get started with our prep guide
                 </button>
             </div>
+            <hr className='w-[90%] mt-10 flex justify-center items-center m-auto border-gray-400' />
+            <Footer />
         </section>
     );
 };
