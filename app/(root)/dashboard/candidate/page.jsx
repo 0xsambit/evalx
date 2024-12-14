@@ -51,7 +51,9 @@ const Candiate = async () => {
                     <Image src={card} alt='interview' />
                 </div>
             </div>
-            <h1 className='text-2xl font-bold my-5'>Your recent interviews</h1>
+            <h1 className='text-2xl font-bold my-5'>
+                Your recent interviews -
+            </h1>
             {interviews.map((e) => (
                 <div
                     className='my-5 bg-black rounded-xl w-2/3 m-auto'
