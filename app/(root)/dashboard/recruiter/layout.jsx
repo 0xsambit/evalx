@@ -5,7 +5,7 @@ const RecruiterLayout = ({ children }) => {
     return (
         <SidebarProvider className='bg-primary text-white'>
             <AppSidebar />
-            <main className='flex w-full min-h-screen'>
+            <main className='flex flex-col w-full min-h-screen'>
                 <SidebarTrigger />
                 {children}
             </main>
