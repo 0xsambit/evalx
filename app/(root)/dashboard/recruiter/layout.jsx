@@ -3,9 +3,9 @@ import { SidebarProvider, SidebarTrigger } from "@/app/components/ui/sidebar";
 
 const RecruiterLayout = ({ children }) => {
     return (
-        <SidebarProvider>
+        <SidebarProvider className='bg-primary text-white'>
             <AppSidebar />
-            <main>
+            <main className='flex w-full min-h-screen'>
                 <SidebarTrigger />
                 {children}
             </main>
