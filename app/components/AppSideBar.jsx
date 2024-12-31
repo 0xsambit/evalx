@@ -19,29 +19,29 @@ import {
 const items = [
     {
         title: "Dashboard",
-        url: "#",
+        url: "/dashboard/recruiter",
         icon: LayoutDashboard,
     },
-    {
-        title: "Interviews",
-        url: "#",
-        icon: LaptopMinimal,
-    },
-    {
-        title: "Candidates",
-        url: "#",
-        icon: User,
-    },
-    {
-        title: "Report",
-        url: "#",
-        icon: Search,
-    },
-    {
-        title: "Settings",
-        url: "#",
-        icon: Settings,
-    },
+    // {
+    //     title: "Interviews",
+    //     url: "#",
+    //     icon: LaptopMinimal,
+    // },
+    // {
+    //     title: "Candidates",
+    //     url: "#",
+    //     icon: User,
+    // },
+    // {
+    //     title: "Report",
+    //     url: "#",
+    //     icon: Search,
+    // },
+    // {
+    //     title: "Settings",
+    //     url: "#",
+    //     icon: Settings,
+    // },
 ];
 
 const AppSidebar = () => {
