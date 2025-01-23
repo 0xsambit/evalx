@@ -20,15 +20,11 @@ import {
     TableHeader,
     TableRow,
 } from "@/app/components/ui/table";
-import dynamic, { noSSR } from "next/dynamic";
-
-const WorldMap = dynamic(() => import("@/app/components/WorldMap"), {
-    noSSR, // Disable server-side rendering
-});
+import WorldMap from "@/app/components/WorldMap";
 
 const Recruiter = async () => {
     const session = await auth();
-    const highlightedCountries = ["US", "IN", "GB", "DE"];
+    const highlightedCountries = ["US", "IN", "DE"];
 
     return (
         <section className='w-full min-h-screen text-white font-poppins px-10'>
@@ -88,7 +84,7 @@ const Recruiter = async () => {
                     </div>
                 </div>
             </div>
-            <div className='grid layout'>
+            <div className='grid layout my-5'>
                 <div className='flex flex-col gap-4 rounded-xl bg-[#2a2a2a] p-4 h-auto'>
                     <div className='flex items-center gap-2'>
                         <BriefcaseBusiness size={24} />
@@ -118,12 +114,6 @@ const Recruiter = async () => {
                     </div>
                 </div>
                 <div className='flex flex-col gap-2 rounded-xl bg-[#2a2a2a] p-4 h-auto justify-center items-center'>
-                    {/* <div className='flex items-center gap-2'>
-                        <Landmark size={24} />
-                        <h1 className='font-medium text-lg'>
-                            Industrial Insight
-                        </h1>
-                    </div> */}
                     <Skeleton className='h-3 w-[250px] bg-gray-300' />
                     <Skeleton className='h-3 w-[200px] bg-gray-300' />
                 </div>
@@ -189,7 +179,7 @@ const Recruiter = async () => {
                     <div className='flex items-center gap-2'>
                         <Globe2 size={24} />
                         <h1 className='font-medium text-lg'>
-                            Potential Candidates
+                            Countries Insight
                         </h1>
                     </div>
                     {/* <WorldMap highlightedCountries={highlightedCountries} /> */}
