@@ -11,22 +11,25 @@ import {
     SidebarContent,
     SidebarGroup,
     SidebarGroupContent,
+    SidebarGroupLabel,
     SidebarMenu,
     SidebarMenuButton,
     SidebarMenuItem,
 } from "@/app/components/ui/sidebar";
-
+import { auth } from "@/auth";
+import logo from "@/app/assets/logo-white.png";
+import Image from "next/image";
 const items = [
     {
-        title: "Dashboard",
+        title: "Overview",
         url: "/dashboard/recruiter",
         icon: LayoutDashboard,
     },
-    // {
-    //     title: "Interviews",
-    //     url: "#",
-    //     icon: LaptopMinimal,
-    // },
+    {
+        title: "Schedule",
+        url: "/schedule",
+        icon: LaptopMinimal,
+    },
     // {
     //     title: "Candidates",
     //     url: "#",
@@ -44,11 +47,19 @@ const items = [
     // },
 ];
 
-const AppSidebar = () => {
+const AppSidebar = async () => {
+    const session = await auth();
     return (
         <Sidebar>
-            <SidebarContent className='bg-primary text-white font-roboto'>
+            <SidebarContent className='bg-primary text-white font-poppins'>
+                <div className='flex items-center justify-center flex-col'>
+                    <Image src={logo} alt='logo' width={90} height={30} />
+                    <h1 className='text-[#a2a2a2]'>{session.user.name}</h1>
+                </div>
                 <SidebarGroup>
+                    <SidebarGroupLabel className='text-gray-400 text-sm'>
+                        Dashboard
+                    </SidebarGroupLabel>
                     <SidebarGroupContent>
                         <SidebarMenu>
                             {items.map((item) => (
@@ -56,7 +67,7 @@ const AppSidebar = () => {
                                     <SidebarMenuButton asChild>
                                         <a href={item.url}>
                                             <item.icon />
-                                            <span className='text-lg'>
+                                            <span className='text-base font-regular'>
                                                 {item.title}
                                             </span>
                                         </a>
