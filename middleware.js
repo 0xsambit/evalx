@@ -12,6 +12,7 @@ export async function middleware(req) {
         "/dashboard/candidate",
         "/dashboard/recruiter",
         "/create-profile",
+        "/schedule",
     ];
 
     // If the user is trying to access a protected route
@@ -39,5 +40,6 @@ export const config = {
         "/dashboard/candidate",
         "/dashboard/recruiter",
         "/create-profile",
+        "/schedule",
     ],
 };

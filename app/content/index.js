@@ -138,17 +138,22 @@ export const insights = [
     {
         id: 1,
         title: "Average Interview Score",
-        value: "4.5",
+        value: "8.5",
     },
     {
         id: 2,
-        title: "Total Interviews Conducted",
-        value: "100",
+        title: "Completed Interviews",
+        value: "10",
     },
     {
         id: 3,
         title: "Total Feedbacks Received",
-        value: "50",
+        value: "10",
+    },
+    {
+        id: 4,
+        title: "Number of Upcoming Interviews",
+        value: "2",
     },
 ];
 export { logo };
