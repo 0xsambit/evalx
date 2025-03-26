@@ -5,6 +5,7 @@ EvalX is a comprehensive platform designed to streamline technical interview pro
 ## 🚀 Technologies Used
 
 ### Frontend
+
 - **Next.js**: React framework for server-side rendering and static site generation
 - **React**: JavaScript library for building user interfaces
 - **Tailwind CSS**: Utility-first CSS framework for custom styling
@@ -14,14 +15,17 @@ EvalX is a comprehensive platform designed to streamline technical interview pro
 - **Shadcn UI**: UI component library for consistent design patterns
 
 ### Authentication
+
 - **NextAuth.js**: Authentication solution for Next.js applications
 - **Google OAuth**: Authentication provider for seamless login
 
 ### Backend
+
 - **Sanity.io**: Headless CMS for content management
 - **GROQ**: Graph-Relational Object Queries for Sanity data
 
 ### Deployment & Development
+
 - **NPM**: Package management
 - **Git**: Version control
 - **ESLint**: Static code analysis
@@ -40,45 +44,50 @@ EvalX is a comprehensive platform designed to streamline technical interview pro
 ## 🛠️ Setup Instructions
 
 ### Prerequisites
+
 - Node.js (>= 14.x)
 - NPM (>= 6.x)
 - Sanity account
 - Google Cloud Platform account (for OAuth)
 
 ### Environment Variables
+
 Create a `.env.local` file in the root directory with the following variables:
 
 ```
-NEXTAUTH_URL = http://localhost:3000 
+NEXTAUTH_URL = http://localhost:3000
 AUTH_SECRET = your_secret_key
 
 Google OAuth
-GOOGLE_CLIENT_ID = your_google_client_id 
+GOOGLE_CLIENT_ID = your_google_client_id
 GOOGLE_CLIENT_SECRET = your_google_client_secret
 
 Sanity CMS
 NEXT_PUBLIC_SANITY_PROJECT_ID = your_sanity_project_id
-NEXT_PUBLIC_SANITY_DATASET = production 
+NEXT_PUBLIC_SANITY_DATASET = production
 NEXT_PUBLIC_SANITY_API_VERSION = 2024-12-02
 ```
 
-
 ### Installation
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/evalx.git
-   cd evalx
+1. **Fork the repository and then clone your repository.**
 
-   npm install
-   ```
+      ```bash
+      git clone https://github.com/yourusername/evalx.git
+      cd evalx
+
+      npm install
+      ```
+
 # Login to Sanity
-``npx sanity login``
+
+`npx sanity login`
 
 # Initialize Sanity studio (if not already done)
-``npx sanity init``
 
-``npm run dev``
+`npx sanity init`
+
+`npm run dev`
 
 **Access the application Open your browser and navigate to http://localhost:3000**
 
@@ -92,6 +101,7 @@ Protected routes ensure only authenticated users can access specific pages
 # Data Models
 
 ### Candidate
+
 - Personal information (name, email, mobile)
 - Profile picture
 - Skills and experience level
@@ -99,6 +109,7 @@ Protected routes ensure only authenticated users can access specific pages
 - About section
 
 ### Recruiter
+
 - Personal information (name, email, mobile)
 - Profile picture
 - Company information
@@ -107,6 +118,7 @@ Protected routes ensure only authenticated users can access specific pages
 # 🚧 Roadmap & Future Directions
 
 ## Short-Term Goals
+
 - Core Features Completion: Finalize authentication, role-based dashboards, interview scheduling, and profile management.
 
 - User Experience Enhancements: Refine UI components, ensure responsiveness, and conduct usability testing.
@@ -114,6 +126,7 @@ Protected routes ensure only authenticated users can access specific pages
 - Basic AI Integration: Implement simple AI-driven suggestions for candidate feedback based on predefined criteria.
 
 ## Mid-Term Goals
+
 - Advanced Interview Analytics: Integrate detailed performance tracking and visualization using Recharts.
 
 - Enhanced Scheduling: Optimize conflict management and integrate with Google Calendar for seamless scheduling.
@@ -137,6 +150,7 @@ Protected routes ensure only authenticated users can access specific pages
 - Broader Ecosystem Integration: Connect EvalX with other HR tools and platforms, further streamlining the recruitment process.
 
 ## AI Integration Roadmap
+
 - Phase 1: Implement basic AI tools to offer feedback suggestions using rule-based systems.
 
 - Phase 2: Incorporate machine learning models to analyze interview performance data, providing detailed analytics and insights.
