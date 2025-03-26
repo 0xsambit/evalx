@@ -2,8 +2,8 @@ import Image from "next/image";
 import logo from "@/app/assets/logo-white.png";
 const Footer = () => {
     return (
-        <div className='px-16 mt-5 flex justify-between items-start m-auto w-full'>
-            <Image src={logo} alt='logo' className='w-32' />
+        <div className='px-16 pt-5 flex justify-between items-start m-auto w-full bg-primary text-white'>
+            <Image src={logo} alt='logo' className='w-40' />
             <div>
                 <h1 className='text-xl mb-5 font-semibold'>Resources</h1>
                 <ul className='text-sm text-gray-300'>

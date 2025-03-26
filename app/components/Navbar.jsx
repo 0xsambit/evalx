@@ -6,7 +6,7 @@ import Link from "next/link";
 const Navbar = async () => {
     const session = await auth();
     return (
-        <header className='flex justify-between items-center px-5 py-2 bg-secondary-200'>
+        <header className='flex justify-between items-center px-5 py-2 bg-secondary-200 shadow-md shadow-[#a7a7a7]'>
             <div>
                 <Image src={logo} alt='' className='w-24 h-auto' />
             </div>
