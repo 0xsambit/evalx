@@ -79,11 +79,11 @@ NEXT_PUBLIC_SANITY_API_VERSION = 2024-12-02
       npm install
       ```
 
-# Login to Sanity
+## Login to Sanity
 
 `npx sanity login`
 
-# Initialize Sanity studio (if not already done)
+## Initialize Sanity studio (if not already done)
 
 `npx sanity init`
 
@@ -91,14 +91,14 @@ NEXT_PUBLIC_SANITY_API_VERSION = 2024-12-02
 
 **Access the application Open your browser and navigate to http://localhost:3000**
 
-# Authentication Flow
+## Authentication Flow
 
 Users access the home page and sign in with Google
 Based on the user's email, the system checks if they're a candidate or recruiter
 The middleware redirects users to the appropriate dashboard
 Protected routes ensure only authenticated users can access specific pages
 
-# Data Models
+## Data Models
 
 ### Candidate
 
@@ -115,7 +115,7 @@ Protected routes ensure only authenticated users can access specific pages
 - Company information
 - Role
 
-# 🚧 Roadmap & Future Directions
+## 🚧 Roadmap & Future Directions
 
 ## Short-Term Goals
 
